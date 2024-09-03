@@ -15,11 +15,7 @@ public class Activity {
     @Id
     private String id;
     private String activityName;
-    private int caloriesPerHour;
-    private int durationMinutes;
-    private int totalCalories;
-    private int weight;
+    private int nfCalories;
+    private int duration;
+    private long timestamp;
 }
-
-
-

@@ -4,7 +4,9 @@ import lombok.Data;
 
 @Data
 public class ActivityRequestDto {
-    private String activityName;
-    private int weight;
+    private String query; // E.g., "swam for 1 hour"
+    private int weight_kg;
+    private int height_cm;
+    private int age;
     private int duration;
 }

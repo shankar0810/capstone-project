@@ -15,6 +15,7 @@ import ProtectedRoute from './pages/SignInPage/ProtectedRoute.jsx';
 import ActivityForm from './pages/exercises/ActivityForm.jsx';
 import UserProfile from './pages/profile/UserProfile.jsx';
 import ProfileContainer from './pages/profile/ProfileContainer.jsx';
+import StressQuestionnaire from './pages/Stress/StressQuestionnaire.jsx';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
               <Route path="/diet-plan" element={<DietPlanForm />} />
               <Route path='/exercise' element={<ExerciseRecommendation />} />
               <Route path='/activity' element={<ActivityForm />} />
+              <Route path='/stress' element={<StressQuestionnaire />} />
             </Route>
           </Routes>
         </Router>

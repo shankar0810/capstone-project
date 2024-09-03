@@ -12,7 +12,6 @@ import './exercise.css';
 
 const ActivityForm = () => {
   const [activity, setActivity] = useState('');
-  const [duration, setDuration] = useState('');
   const [tableData, setTableData] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -31,17 +30,29 @@ const ActivityForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          activityName: activity,
-          weight: userdata.weight, // Use the weight fetched from the user data
-          duration: duration, // Dynamic duration
+          query: activity,
+          weight_kg: userdata.weight, // Use the weight fetched from the user data
+          height_cm: userdata.height, // Use the height fetched from the user data
+          age: userdata.age, // Use the age fetched from the user data
+          duration: 60, // Dynamic duration
         }),
       });
-        
-
+      
       const data = await response.json();
+      const calories = data.map((activityData) => activityData.nfCalories);
+    const totalCalories = calories.reduce((acc, current) => acc + current, 0);
+
+    // Get current value from local storage
+    const storedCalories = parseFloat(localStorage.getItem('calorie')) || 0;
+
+    // Update local storage with new value
+      localStorage.setItem('calorie', storedCalories + totalCalories);
+      //console.log('Calorie');
+      
       const formattedData = data.map((activityData) => ({
         Activity: activityData.activityName,
-        "Total Calories": activityData.totalCalories,
+        "Total Calories": activityData.nfCalories,
+        Timestamp: new Date(activityData.timestamp).toLocaleString(), // Convert timestamp to readable date
       }));
       setTableData(formattedData);
     } catch (error) {
@@ -60,20 +71,13 @@ const ActivityForm = () => {
             <h2 className="exercise-recommendation__title">Enter an activity</h2>
             <input
               type="text"
-              placeholder="Activity name (e.g., cycling)"
+              placeholder="Activity name (e.g., running for 1 hour/minutes)"
               className="exercise-recommendation__input"
               value={activity}
               onChange={(e) => setActivity(e.target.value)}
               disabled={loading} // Disable the input while loading
             />
-            <input
-              type="text"
-              placeholder="Duration (in minutes)"
-              className="exercise-recommendation__input"
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-              disabled={loading} // Disable the input while loading
-            />
+            
             <button
               className="exercise-recommendation__button"
               onClick={handleSubmitActivity}
@@ -83,7 +87,7 @@ const ActivityForm = () => {
             </button>
           </div>
         </div>
-        
+
         {/* Display the loader while data is being fetched */}
         {loading ? (
           <div className="loader-container">

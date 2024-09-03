@@ -25,42 +25,43 @@ public class ActivityService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String apiKey = "r6uHP3uFJMdH03tIUu2AUg==pOSQtMH4qlLP2Si0"; // Replace with your API key
+    private final String appId = "6049b699"; // Replace with your x-app-id
+    private final String appKey = "723c95d84a64906fcf41899b7a4a4635"; // Replace with your x-app-key
 
     public List<ActivityResponseDto> fetchAndSaveActivities(ActivityRequestDto requestDto) {
         List<ActivityResponseDto> responseDtos = new ArrayList<>();
 
         try {
-            // Convert weight from kg to pounds
-            double weightInPounds = requestDto.getWeight() * 2.20462;
-
-            String apiUrl = String.format("https://api.api-ninjas.com/v1/caloriesburned?activity=%s&weight=%.2f&duration=%d",
-                    requestDto.getActivityName(), weightInPounds, requestDto.getDuration());
+            String apiUrl = "https://trackapi.nutritionix.com/v2/natural/exercise";
 
             HttpHeaders headers = new HttpHeaders();
-            headers.set("accept", "application/json");
-            headers.set("X-Api-Key", apiKey);
+            headers.set("Content-Type", "application/json");
+            headers.set("x-app-id", appId);
+            headers.set("x-app-key", appKey);
 
-            ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.GET, new org.springframework.http.HttpEntity<>(headers), String.class);
+            String requestBody = String.format("{\"query\": \"%s\", \"weight_kg\": %d, \"height_cm\": %d, \"age\": %d}",
+                    requestDto.getQuery(), requestDto.getWeight_kg(), requestDto.getHeight_cm(), requestDto.getAge());
+
+            ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, new org.springframework.http.HttpEntity<>(requestBody, headers), String.class);
 
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
 
             List<Activity> activities = new ArrayList<>();
-            for (JsonNode node : root) {
+            for (JsonNode node : root.path("exercises")) {
                 Activity activity = new Activity();
                 activity.setActivityName(node.path("name").asText());
-                activity.setCaloriesPerHour(node.path("calories_per_hour").asInt());
-                activity.setDurationMinutes(node.path("duration_minutes").asInt());
-                activity.setTotalCalories(node.path("total_calories").asInt());
-                activity.setWeight(requestDto.getWeight()); // Store the original weight in kg
+                activity.setNfCalories(node.path("nf_calories").asInt());
+                activity.setDuration(requestDto.getDuration());
+                activity.setTimestamp(System.currentTimeMillis());
 
                 activities.add(activity);
 
                 // Prepare response DTO
                 ActivityResponseDto responseDto = new ActivityResponseDto();
                 responseDto.setActivityName(activity.getActivityName());
-                responseDto.setTotalCalories(activity.getTotalCalories());
+                responseDto.setNfCalories(activity.getNfCalories());
+                responseDto.setTimestamp(activity.getTimestamp());
 
                 responseDtos.add(responseDto);
             }

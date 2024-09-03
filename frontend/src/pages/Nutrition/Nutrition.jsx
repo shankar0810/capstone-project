@@ -5,11 +5,13 @@ import NutritionTable from './NutritionTable';
 import SideNavbar from '../../components/sidenav/SideNavbar';
 import { useNavigate } from 'react-router-dom';
 import BounceLoader from 'react-spinners/BounceLoader';
+import { Dashboard } from '@mui/icons-material';
 
 function Nutrition() {
     const [nutritionalData, setNutritionalData] = useState(null);
     const [ingredient, setIngredient] = useState('');
-    const [loading, setLoading] = useState(false); // Add loading state
+    const [loading, setLoading] = useState(false);
+    const [energy, setEnergy] = useState(null);// Add loading state
 
     const navigate = useNavigate();
 
@@ -20,6 +22,21 @@ function Nutrition() {
                 ingredient: ingredient
             });
             setNutritionalData(response.data);
+            const nutritionData = JSON.parse(response.data.nutritionInfo);
+            const energyValue = nutritionData.totalNutrients.ENERC_KCAL.quantity;
+            setEnergy(energyValue);
+            let existingEnergy = localStorage.getItem('energy');
+            if (existingEnergy) {
+                existingEnergy = parseFloat(existingEnergy);
+                // Add the new energy value to the existing one
+                existingEnergy += energyValue;
+            } else {
+                // If no existing energy, use the new value
+                existingEnergy = energyValue;
+            }
+
+            // Save the updated energy value to local storage
+            localStorage.setItem('energy', existingEnergy);
         } catch (error) {
             console.error("Error fetching data:", error);
         } finally {
@@ -61,6 +78,7 @@ function Nutrition() {
                     nutritionalData && <NutritionTable data={nutritionalData} />
                 )}
             </div>
+            
         </div>
     );
 }
