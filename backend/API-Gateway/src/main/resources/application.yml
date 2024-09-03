@@ -1,0 +1,66 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':  # Apply to all routes
+            allowedOrigins:
+              - "http://localhost:3000"  # Your frontend origin
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "*"  # Allow all headers
+            allowCredentials: true  # Allow cookies/authentication
+
+      mvc:
+        routes:
+          - id: Exercise-Rec
+            uri: http://localhost:3337
+            predicates:
+              - Path=/exercise/**
+          - id: User-Management-Service
+            uri: http://localhost:3332
+            predicates:
+              - Path=/user/**
+          - id: Diet-Service
+            uri: http://localhost:3334
+            predicates:
+              - Path=/diet/**
+          - id: Nutrition-Rec
+            uri: http://localhost:3336
+            predicates:
+              - Path=/nutrition/**
+          - id: Calories-Service
+            uri: http://localhost:3335
+            predicates:
+              - Path=/activity/**
+          - id: Health-Management-Service
+            uri: http://localhost:3333
+            predicates:
+              - Path=/health/**
+
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true

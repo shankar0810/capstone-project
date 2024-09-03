@@ -1,0 +1,172 @@
+/* Glassmorphism overlay effect */
+.psp-container {
+  display: flex;
+  box-sizing: border-box;
+  z-index: 1000 /* Ensure padding doesn't add to the width */
+}
+
+.psp-overlay {
+  margin-top: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: linear-gradient(90deg, #3a8ef6, #6f3afa);/* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Card styling */
+  .psp-card {
+    background: #f3f3fd;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px;
+    overflow-y: auto;
+    max-height: 90vh;
+    color: #000000;
+  }
+  
+  /* Title styling */
+  .psp-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: linear-gradient(90deg, #3a8ef6, #6f3afa);
+    font-weight: 600;
+  }
+  
+  /* Form styling */
+  .psp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Form row styling */
+  .psp-form-row {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+  }
+
+  .psp-form-column {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+  
+  /* Input group styling */
+  .psp-input-group {
+    position: relative;
+    flex: 1;
+  }
+  
+  /* Input and select styling */
+  .psp-input,
+  .psp-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #f3f3fd;
+    transition: border-color 0.3s ease;
+    color: #000000;
+  }
+  
+  /* Focus state for input and select */
+  .psp-input:focus,
+  .psp-select:focus {
+    outline: none;
+    border-color: #4A90E2;
+  }
+  
+  /* Label styling */
+  .psp-label {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  /* Label animation */
+  .psp-input:focus ~ .psp-label,
+  .psp-input:not(:placeholder-shown) ~ .psp-label,
+  .psp-select:focus ~ .psp-label,
+  .psp-select:not(:placeholder-shown) ~ .psp-label {
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 0.75rem;
+    background-color: white;
+    padding: 0 0.25rem;
+    color: #4A90E2;
+  }
+  
+  /* Custom select styling */
+  .psp-select {
+    appearance: none;
+    padding-right: 2rem;
+  }
+  
+  /* Select icon styling */
+  .psp-select-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #999;
+  }
+  
+  /* Button styling */
+  .psp-submit {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .psp-submit:hover {
+    background-color: #357ABD;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .psp-card {
+      width: 95%;
+      padding: 1.5rem;
+    }
+  
+    .psp-form-row {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .psp-card {
+      padding: 1rem;
+    }
+  
+    .psp-title {
+      font-size: 1.5rem;
+    }
+  
+    .psp-input,
+    .psp-select,
+    .psp-submit {
+      padding: 0.6rem;
+    }
+  }
+  

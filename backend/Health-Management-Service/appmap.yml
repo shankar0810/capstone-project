@@ -1,0 +1,5 @@
+language: "java"
+name: "Health-Management-Service"
+appmap_dir: "tmp/appmap"
+packages:
+- path: "com.capstone.Health_Management_Service"

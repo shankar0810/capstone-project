@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/v1/health/macro-nutrients/{userId}",
+    "parameters": "()",
+    "status": 200
+  }
+]

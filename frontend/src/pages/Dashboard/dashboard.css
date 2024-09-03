@@ -1,0 +1,144 @@
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f3f3fd;
+}
+
+.main-content4 {
+    flex-grow: 1;
+    margin-left: 100px; /* Adjust based on your SideNavBar width */
+    padding: 2rem;
+    margin-right: 40px;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Grid layout for cards */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Glassmorphism card style */
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(232, 231, 231, 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Title and text styling for cards */
+.dashboard-card h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.dashboard-card p {
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff4444;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Specific card styles with different background colors */
+.water-intake {
+    background: #ffffff; /* Light blue */
+}
+
+.heart-rate {
+    background: #ffffff; /* Light red */
+}
+
+.daily-calorie {
+    background: #ffffff; /* Light green */
+}
+
+.macronutrients {
+    background: #ffffff; /* Light yellow */
+}
+
+.bmi {
+    background: #ffffff; /* Light yellow */
+}
+
+/* Add icons to cards */
+.dashboard-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.icon-water{
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.icon-heart{
+    color: #d82828;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.icon-calorie{
+    color: #e1372e;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.icon-nutrients{
+    color: rgb(23, 162, 23);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.icon-bmi{
+    color: rgb(106, 23, 162);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+
+/* Adjusting responsiveness */
+@media (max-width: 1200px) {
+    .dashboard-card {
+        flex: 1 1 calc(50% - 1rem); /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-card {
+        flex: 1 1 100%; /* 1 card per row on small screens */
+    }
+
+    .main-content4 {
+        margin-left: 60px; /* Remove margin on small screens */
+        padding: 1rem;
+    }
+}

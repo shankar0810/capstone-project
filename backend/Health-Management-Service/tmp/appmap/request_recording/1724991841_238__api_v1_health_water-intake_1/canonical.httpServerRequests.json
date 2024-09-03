@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/v1/health/water-intake/{userId}",
+    "parameters": "()",
+    "status": 200
+  }
+]

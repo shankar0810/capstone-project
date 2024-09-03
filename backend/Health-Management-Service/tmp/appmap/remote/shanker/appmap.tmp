@@ -1,0 +1,705 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "369",
+          "postman-token": "cce00332-20ea-455b-8ff7-7675efebc4b2",
+          "host": "localhost:3333",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/createuser",
+        "path_info": "/api/v1/health/createuser",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 53
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 2,
+      "lineno": 42,
+      "method_id": "createUser",
+      "parameters": [
+        {
+          "class": "com.capstone.Health_Management_Service.model.HealthData",
+          "kind": "req",
+          "name": "healthData",
+          "object_id": 1030859381,
+          "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 53
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 3,
+      "lineno": 191,
+      "method_id": "createUser",
+      "parameters": [
+        {
+          "class": "com.capstone.Health_Management_Service.model.HealthData",
+          "kind": "req",
+          "name": "healthData",
+          "object_id": 1030859381,
+          "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 53
+    },
+    {
+      "elapsed": 0.0444423,
+      "event": "return",
+      "id": 4,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.model.HealthData",
+        "object_id": 1030859381,
+        "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+      },
+      "thread_id": 53
+    },
+    {
+      "elapsed": 0.05270427,
+      "event": "return",
+      "id": 5,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.model.HealthData",
+        "object_id": 1030859381,
+        "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+      },
+      "thread_id": 53
+    },
+    {
+      "elapsed": 0.08614274,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:22:46 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 6,
+      "parent_id": 1,
+      "thread_id": 53
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "b8458b52-f78e-43d9-b81b-26f12427c0d7",
+          "host": "localhost:3333",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/heart-rate/{userId}",
+        "path_info": "/api/v1/health/heart-rate/1",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 7,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 8,
+      "lineno": 27,
+      "method_id": "getTargetHeartRateResponse",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 2075868871,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 9,
+      "lineno": 78,
+      "method_id": "calculateTargetHeartRate",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 2075868871,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.2134897,
+      "event": "return",
+      "id": 10,
+      "parent_id": 9,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.TargetHeartRateResponse",
+        "object_id": 1427499166,
+        "value": "TargetHeartRateResponse(thrMax=165.75 bpm, thrMin=117.0 bpm)"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.21359728,
+      "event": "return",
+      "id": 11,
+      "parent_id": 8,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.TargetHeartRateResponse",
+        "object_id": 1427499166,
+        "value": "TargetHeartRateResponse(thrMax=165.75 bpm, thrMin=117.0 bpm)"
+      },
+      "thread_id": 54
+    },
+    {
+      "elapsed": 0.21571463,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:23:12 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 12,
+      "parent_id": 7,
+      "thread_id": 54
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "10b94c9a-3e22-43ac-9b90-b0cf12ecdba0",
+          "host": "localhost:3333",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/daily-caloric-intake/{userId}",
+        "path_info": "/api/v1/health/daily-caloric-intake/1",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 13,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 14,
+      "lineno": 32,
+      "method_id": "getDailyCaloricIntake",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 764785463,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 15,
+      "lineno": 110,
+      "method_id": "calculateDailyCaloricNeeds",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 764785463,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.09391723,
+      "event": "return",
+      "id": 16,
+      "parent_id": 15,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.DailyCaloricNeedsResponse",
+        "object_id": 366482441,
+        "value": "DailyCaloricNeedsResponse(caloric_needs=DailyCaloricNeedsResponse.CaloricNeeds(calories=2161.13 kcal/day, equation=mifflin, goal=weight_loss))"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.09401722,
+      "event": "return",
+      "id": 17,
+      "parent_id": 14,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.DailyCaloricNeedsResponse",
+        "object_id": 366482441,
+        "value": "DailyCaloricNeedsResponse(caloric_needs=DailyCaloricNeedsResponse.CaloricNeeds(calories=2161.13 kcal/day, equation=mifflin, goal=weight_loss))"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.09510863,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:23:30 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 18,
+      "parent_id": 13,
+      "thread_id": 55
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "4d91cc72-a711-4ced-b94e-aa64097e25de",
+          "host": "localhost:3333",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/macro-nutrients/{userId}",
+        "path_info": "/api/v1/health/macro-nutrients/1",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 19,
+      "thread_id": 57
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 20,
+      "lineno": 37,
+      "method_id": "getMacroNutrients",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 694575253,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 57
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 21,
+      "lineno": 156,
+      "method_id": "calculateNutrtionRequired",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 694575253,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 57
+    },
+    {
+      "elapsed": 0.10695035,
+      "event": "return",
+      "id": 22,
+      "parent_id": 21,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.NutritionResponse",
+        "object_id": 1194997163,
+        "value": "NutritionResponse(carbohydrates=45.0%, fats=25.0%, proteins=30.0%)"
+      },
+      "thread_id": 57
+    },
+    {
+      "elapsed": 0.10714612,
+      "event": "return",
+      "id": 23,
+      "parent_id": 20,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.NutritionResponse",
+        "object_id": 1194997163,
+        "value": "NutritionResponse(carbohydrates=45.0%, fats=25.0%, proteins=30.0%)"
+      },
+      "thread_id": 57
+    },
+    {
+      "elapsed": 0.10784353,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:23:46 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 24,
+      "parent_id": 19,
+      "thread_id": 57
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "b68eaa65-6607-4d0e-b13b-de1fd10d61ad",
+          "host": "localhost:3333",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/water-intake/{userId}",
+        "path_info": "/api/v1/health/water-intake/1",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 25,
+      "thread_id": 58
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 26,
+      "lineno": 22,
+      "method_id": "getWaterIntake",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 1085784925,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 58
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 27,
+      "lineno": 44,
+      "method_id": "calculateWaterIntake",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 1085784925,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 58
+    },
+    {
+      "elapsed": 0.09028702,
+      "event": "return",
+      "id": 28,
+      "parent_id": 27,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.WaterIntakeResponse",
+        "object_id": 1641292611,
+        "value": "WaterIntakeResponse(unit=liters, waterIntake=1.72)"
+      },
+      "thread_id": 58
+    },
+    {
+      "elapsed": 0.09048697,
+      "event": "return",
+      "id": 29,
+      "parent_id": 26,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.WaterIntakeResponse",
+        "object_id": 1641292611,
+        "value": "WaterIntakeResponse(unit=liters, waterIntake=1.72)"
+      },
+      "thread_id": 58
+    },
+    {
+      "elapsed": 0.09108693,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:24:02 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 30,
+      "parent_id": 25,
+      "thread_id": 58
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "shanker",
+    "app": "Health-Management-Service",
+    "language": {
+      "name": "java",
+      "version": "21.0.2+13-58",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "remote_recording",
+      "type": "remote"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/shankar0810/capstone-project.git",
+      "branch": "main",
+      "commit": "d3e90a1b97d6ae97206a6112f5bc1c78804306e9"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getMacroNutrients",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:37"
+                        },
+                        {
+                          "name": "getDailyCaloricIntake",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:32"
+                        },
+                        {
+                          "name": "getTargetHeartRateResponse",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:27"
+                        },
+                        {
+                          "name": "getWaterIntake",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:22"
+                        },
+                        {
+                          "name": "createUser",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:42"
+                        }
+                      ],
+                      "name": "HealthController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "calculateTargetHeartRate",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:78"
+                        },
+                        {
+                          "name": "calculateDailyCaloricNeeds",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:110"
+                        },
+                        {
+                          "name": "calculateWaterIntake",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:44"
+                        },
+                        {
+                          "name": "calculateNutrtionRequired",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:156"
+                        },
+                        {
+                          "name": "createUser",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:191"
+                        }
+                      ],
+                      "name": "HealthService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                }
+              ],
+              "name": "Health_Management_Service",
+              "type": "package"
+            }
+          ],
+          "name": "capstone",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /api/v1/health/createuser"
+        },
+        {
+          "type": "route",
+          "name": "GET /api/v1/health/heart-rate/{userId}"
+        },
+        {
+          "type": "route",
+          "name": "GET /api/v1/health/daily-caloric-intake/{userId}"
+        },
+        {
+          "type": "route",
+          "name": "GET /api/v1/health/macro-nutrients/{userId}"
+        },
+        {
+          "type": "route",
+          "name": "GET /api/v1/health/water-intake/{userId}"
+        }
+      ]
+    }
+  ]
+}

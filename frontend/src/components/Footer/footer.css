@@ -1,0 +1,52 @@
+/* Footer container styles */
+.footer-container {
+    background-color: #f3f3fd; /* Light background for the footer */
+    border-top: 1px solid #e0e0e0; /* Subtle top border */
+  }
+  
+  /* Container styles */
+  .container {
+    max-width: 1200px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 0 1rem; /* Add horizontal padding */
+  }
+  
+  /* Text alignment */
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Flexbox styles for footer links */
+  ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center; /* Center links horizontally */
+  }
+  
+  li {
+    display: inline;
+  }
+  
+  a {
+    color: #007bff; /* Primary link color */
+    text-decoration: none; /* Remove underline */
+    padding: 0.5rem 1rem; /* Add padding for clickable area */
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Add underline on hover for better accessibility */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    ul {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+  
+    li {
+      margin-bottom: 0.5rem; /* Add spacing between items */
+    }
+  }
+  

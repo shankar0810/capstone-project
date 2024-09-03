@@ -1,0 +1,203 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "b68eaa65-6607-4d0e-b13b-de1fd10d61ad",
+          "host": "localhost:3333",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/water-intake/{userId}",
+        "path_info": "/api/v1/health/water-intake/1",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 1,
+      "thread_id": 58
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 2,
+      "lineno": 22,
+      "method_id": "getWaterIntake",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 1085784925,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 58
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 3,
+      "lineno": 44,
+      "method_id": "calculateWaterIntake",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 1085784925,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 58
+    },
+    {
+      "elapsed": 0.09028702,
+      "event": "return",
+      "id": 4,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.WaterIntakeResponse",
+        "object_id": 1641292611,
+        "value": "WaterIntakeResponse(unit=liters, waterIntake=1.72)"
+      },
+      "thread_id": 58
+    },
+    {
+      "elapsed": 0.09048697,
+      "event": "return",
+      "id": 5,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.WaterIntakeResponse",
+        "object_id": 1641292611,
+        "value": "WaterIntakeResponse(unit=liters, waterIntake=1.72)"
+      },
+      "thread_id": 58
+    },
+    {
+      "elapsed": 0.09108693,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:24:02 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 6,
+      "parent_id": 1,
+      "thread_id": 58
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /api/v1/health/water-intake/1 (200) - 09:54:01.238",
+    "app": "Health-Management-Service",
+    "language": {
+      "name": "java",
+      "version": "21.0.2+13-58",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/shankar0810/capstone-project.git",
+      "branch": "main",
+      "commit": "d3e90a1b97d6ae97206a6112f5bc1c78804306e9"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "calculateWaterIntake",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:44"
+                        }
+                      ],
+                      "name": "HealthService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getWaterIntake",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:22"
+                        }
+                      ],
+                      "name": "HealthController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                }
+              ],
+              "name": "Health_Management_Service",
+              "type": "package"
+            }
+          ],
+          "name": "capstone",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /api/v1/health/water-intake/{userId}"
+        }
+      ]
+    }
+  ]
+}

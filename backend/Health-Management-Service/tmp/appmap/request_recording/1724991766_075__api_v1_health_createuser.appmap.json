@@ -1,0 +1,205 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "369",
+          "postman-token": "cce00332-20ea-455b-8ff7-7675efebc4b2",
+          "host": "localhost:3333",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/createuser",
+        "path_info": "/api/v1/health/createuser",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 53
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 2,
+      "lineno": 42,
+      "method_id": "createUser",
+      "parameters": [
+        {
+          "class": "com.capstone.Health_Management_Service.model.UserData",
+          "kind": "req",
+          "name": "userData",
+          "object_id": 1030859381,
+          "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 53
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 3,
+      "lineno": 191,
+      "method_id": "createUser",
+      "parameters": [
+        {
+          "class": "com.capstone.Health_Management_Service.model.UserData",
+          "kind": "req",
+          "name": "userData",
+          "object_id": 1030859381,
+          "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 53
+    },
+    {
+      "elapsed": 0.0444423,
+      "event": "return",
+      "id": 4,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.model.UserData",
+        "object_id": 1030859381,
+        "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+      },
+      "thread_id": 53
+    },
+    {
+      "elapsed": 0.05270427,
+      "event": "return",
+      "id": 5,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.model.UserData",
+        "object_id": 1030859381,
+        "value": "UserData(id=1, age=25, weight=83.0, height=183.0, gender=male, goal=weight_loss, activityLevel=moderately_active, fitnessLevel=intermediate, climate=normal, unit=liters, bodyCompositionalGoal=muscle_gain, dietaryPreferences=vegan, equation=mifflin)"
+      },
+      "thread_id": 53
+    },
+    {
+      "elapsed": 0.08614274,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:22:46 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 6,
+      "parent_id": 1,
+      "thread_id": 53
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /api/v1/health/createuser (200) - 09:52:46.075",
+    "app": "Health-Management-Service",
+    "language": {
+      "name": "java",
+      "version": "21.0.2+13-58",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/shankar0810/capstone-project.git",
+      "branch": "main",
+      "commit": "d3e90a1b97d6ae97206a6112f5bc1c78804306e9"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "createUser",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:42"
+                        }
+                      ],
+                      "name": "HealthController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "createUser",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:191"
+                        }
+                      ],
+                      "name": "HealthService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                }
+              ],
+              "name": "Health_Management_Service",
+              "type": "package"
+            }
+          ],
+          "name": "capstone",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /api/v1/health/createuser"
+        }
+      ]
+    }
+  ]
+}

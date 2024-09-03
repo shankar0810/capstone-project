@@ -1,0 +1,245 @@
+/* Base styles */
+.nutrition-container {
+    display: flex;
+    width: 250px; /* Fixed width */
+    padding: 20px; /* Added padding for spacing */
+    box-sizing: border-box; /* Ensure padding doesn't add to the width */
+}
+
+.main-content1 {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%; /* Full width within the container */
+    box-sizing: border-box;
+}
+
+.nutrition-h1 {
+    margin-top: 2rem;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center text */
+}
+
+.nutrition-h2 {
+    margin-top: 20px;
+    font-size: 6px;
+    margin-bottom: 20px;
+    text-align: center; /* Center text */
+}
+
+.nutrition-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.nutrition-form-control {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(161,161,161,0.9);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nutrition-form-control:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(58, 142, 246, 0.5);
+}
+
+.nutrition-btn {
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.nutrition-btn:hover {
+    background-color: #2176FF;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 118, 255, 0.4);
+}
+
+.nutrition-btn1 {
+    padding: 12px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.nutrition-btn1:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 118, 255, 0.4);
+}
+
+/* Mobile (portrait and landscape) */
+@media (max-width: 767px) {
+    .nutrition-h1 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .nutrition-h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .nutrition-form-control {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .nutrition-btn {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .nutrition-btn1 {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+/* Tablets (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .nutrition-h1 {
+        font-size: 1.75rem;
+    }
+
+    .nutrition-h2 {
+        font-size: 1.75rem;
+    }
+
+    .nutrition-form-control {
+        font-size: 1rem;
+    }
+
+    .nutrition-btn {
+        font-size: 1rem;
+    }
+
+    .nutrition-btn1 {
+        font-size: 1rem;
+    }
+}
+
+/* Laptops */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .nutrition-h1 {
+        font-size: 2rem;
+    }
+
+    .nutrition-h2 {
+        font-size: 1.5rem;
+    }
+
+    .nutrition-form-control {
+        font-size: 1rem;
+    }
+
+    .nutrition-btn {
+        font-size: 1rem;
+    }
+
+    .nutrition-btn1 {
+        font-size: 1rem;
+    }
+}
+
+/* Desktops (large screens) */
+@media (min-width: 1441px) {
+    .nutrition-h1 {
+        font-size: 2.25rem;
+    }
+
+    .nutrition-h2 {
+        font-size: 2.25rem;
+    }
+
+    .nutrition-form-control {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    .nutrition-btn {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    .nutrition-btn1 {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+}
+
+.nutritiontb-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .nutritiontb-h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .nutritiontb-h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .nutritiontb-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .nutritiontb-table th,
+  .nutritiontb-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .nutritiontb-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .nutritiontb-table td:first-child {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .nutritiontb-container {
+      padding: 10px;
+    }
+  }

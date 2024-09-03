@@ -1,0 +1,13 @@
+/* homepage.css */
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f3fd; /* Light background for the entire page */
+  }
+
+
+
+  .main-content {
+    padding-top: 60px; /* Adjust this value to match the height of your header */
+  }

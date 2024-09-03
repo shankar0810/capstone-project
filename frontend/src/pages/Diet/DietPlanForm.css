@@ -1,0 +1,134 @@
+/* DietPlanForm.css */
+
+
+.diet-plan-container1{
+    margin: 0 auto;
+    display: flex;
+}
+
+.diet-plan-container {
+    margin: 30px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f3f3fd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .diet-plan-container h1 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  
+  .diet-plan-container form input[type="text"],
+  .diet-plan-container form input[type="number"] {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(161,161,161,0.9);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0;
+  }
+
+  .diet-plan-container form input:focus[type="text"],
+  .diet-plan-container form input:focus[type="number"] {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(58, 142, 246, 0.5);
+  }
+  
+  .diet-plan-container form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #3A8EF6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .diet-plan-container form button:hover {
+    background-color: #2176FF;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 118, 255, 0.4);
+  }
+  
+  .diet-plan-content {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .diet-plan-content h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .diet-plan-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .diet-plan-content th,
+  .diet-plan-content td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .diet-plan-content th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .diet-plan-content tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  @media (max-width: 600px) {
+    .diet-plan-container {
+        padding: 15px;
+    }
+  
+    .diet-plan-container form input[type="text"],
+    .diet-plan-container form input[type="number"] {
+        width: calc(100% - 16px);
+    }
+  
+    .diet-plan-container form button {
+        font-size: 14px;
+    }
+  
+    .diet-plan-content h2 {
+        font-size: 20px;
+    }
+  }
+
+
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 20px;
+  }
+  
+  

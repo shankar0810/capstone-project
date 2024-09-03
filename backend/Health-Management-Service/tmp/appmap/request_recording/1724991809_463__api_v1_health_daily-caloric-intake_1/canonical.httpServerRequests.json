@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/v1/health/daily-caloric-intake/{userId}",
+    "parameters": "()",
+    "status": 200
+  }
+]

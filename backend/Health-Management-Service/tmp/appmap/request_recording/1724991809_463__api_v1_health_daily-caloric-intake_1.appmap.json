@@ -1,0 +1,203 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "10b94c9a-3e22-43ac-9b90-b0cf12ecdba0",
+          "host": "localhost:3333",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.41.2",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/health/daily-caloric-intake/{userId}",
+        "path_info": "/api/v1/health/daily-caloric-intake/1",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 1,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.controller.HealthController",
+      "event": "call",
+      "id": 2,
+      "lineno": 32,
+      "method_id": "getDailyCaloricIntake",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 764785463,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/controller/HealthController.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.controller.HealthController",
+        "object_id": 656403476,
+        "value": "com.capstone.Health_Management_Service.controller.HealthController@271fec14"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "defined_class": "com.capstone.Health_Management_Service.service.HealthService",
+      "event": "call",
+      "id": 3,
+      "lineno": 110,
+      "method_id": "calculateDailyCaloricNeeds",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "userId",
+          "object_id": 764785463,
+          "value": "1"
+        }
+      ],
+      "path": "com/capstone/Health_Management_Service/service/HealthService.java",
+      "receiver": {
+        "class": "com.capstone.Health_Management_Service.service.HealthService",
+        "object_id": 1131542556,
+        "value": "com.capstone.Health_Management_Service.service.HealthService@4371f81c"
+      },
+      "static": false,
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.09391723,
+      "event": "return",
+      "id": 4,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.DailyCaloricNeedsResponse",
+        "object_id": 366482441,
+        "value": "DailyCaloricNeedsResponse(caloric_needs=DailyCaloricNeedsResponse.CaloricNeeds(calories=2161.13 kcal/day, equation=mifflin, goal=weight_loss))"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.09401722,
+      "event": "return",
+      "id": 5,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.capstone.Health_Management_Service.dto.DailyCaloricNeedsResponse",
+        "object_id": 366482441,
+        "value": "DailyCaloricNeedsResponse(caloric_needs=DailyCaloricNeedsResponse.CaloricNeeds(calories=2161.13 kcal/day, equation=mifflin, goal=weight_loss))"
+      },
+      "thread_id": 55
+    },
+    {
+      "elapsed": 0.09510863,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Fri, 30 Aug 2024 04:23:30 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 6,
+      "parent_id": 1,
+      "thread_id": 55
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /api/v1/health/daily-caloric-intake/1 (200) - 09:53:29.463",
+    "app": "Health-Management-Service",
+    "language": {
+      "name": "java",
+      "version": "21.0.2+13-58",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/shankar0810/capstone-project.git",
+      "branch": "main",
+      "commit": "d3e90a1b97d6ae97206a6112f5bc1c78804306e9"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getDailyCaloricIntake",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/controller/HealthController.java:32"
+                        }
+                      ],
+                      "name": "HealthController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "calculateDailyCaloricNeeds",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/capstone/Health_Management_Service/service/HealthService.java:110"
+                        }
+                      ],
+                      "name": "HealthService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                }
+              ],
+              "name": "Health_Management_Service",
+              "type": "package"
+            }
+          ],
+          "name": "capstone",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /api/v1/health/daily-caloric-intake/{userId}"
+        }
+      ]
+    }
+  ]
+}

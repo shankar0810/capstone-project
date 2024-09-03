@@ -1,0 +1,22 @@
+[
+  {
+    "caller": "GET /api/v1/health/daily-caloric-intake/{userId}",
+    "callee": "com/capstone"
+  },
+  {
+    "caller": "GET /api/v1/health/heart-rate/{userId}",
+    "callee": "com/capstone"
+  },
+  {
+    "caller": "GET /api/v1/health/macro-nutrients/{userId}",
+    "callee": "com/capstone"
+  },
+  {
+    "caller": "GET /api/v1/health/water-intake/{userId}",
+    "callee": "com/capstone"
+  },
+  {
+    "caller": "POST /api/v1/health/createuser",
+    "callee": "com/capstone"
+  }
+]

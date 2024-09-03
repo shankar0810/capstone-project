@@ -1,0 +1,127 @@
+/* Header container styles */
+.header-container1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f3f3fd; /* Light background */
+  border-bottom: 1px solid #e5e7eb; /* Light gray bottom border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  backdrop-filter: blur(10px); /* Glassmorphism blur effect */
+  z-index: 1000; /* Ensure the header stays on top */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+/* Header logo styles */
+.header-container1 img {
+  max-height: 40px; /* Set a max height for the logo */
+  width: auto; /* Maintain aspect ratio */
+}
+
+/* Header nav styles */
+.header-container1 nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-container1 .nav-link {
+  color: #4b5563; /* Medium gray for links */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.header-container1 .nav-link:hover {
+  background: linear-gradient(90deg, #3a8ef6, #6f3afa); /* Gradient background */
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37); /* Glassmorphism shadow */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+  color: #ffffff; /* White text on hover */
+  backdrop-filter: blur(10px); /* Apply glassmorphism on hover */
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+  display: none; /* Hide hamburger by default */
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.hamburger-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: #4b5563; /* Match link color */
+  margin: 3px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header-container1 .nav-links {
+    display: none; /* Hide nav links by default on smaller screens */
+    flex-direction: column;
+    width: 100%;
+    background-color: #f3f3fd; /* Match header background */
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+  }
+
+  .header-container1 .nav-links.active {
+    display: flex; /* Show nav links when active */
+  }
+
+  .header-container1 .nav-link {
+    margin: 0.5rem 0; /* Space out links vertically */
+  }
+
+  .hamburger-menu {
+    display: flex; /* Show hamburger menu on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container1 {
+    padding: 0 0.5rem;
+  }
+
+  .header-container1 img {
+    max-height: 35px; /* Adjust logo size for smaller screens */
+  }
+
+  .header-container1 .nav-link {
+    font-size: 14px; /* Slightly smaller text */
+    padding: 6px 12px; /* Adjust padding for smaller screens */
+  }
+
+  .hamburger-menu div {
+    width: 20px;
+    height: 2.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container1 img {
+    max-height: 30px; /* Further adjust logo size for mobile */
+  }
+
+  .header-container1 .nav-link {
+    font-size: 12px; /* Even smaller text */
+    padding: 5px 10px; /* Smaller padding */
+  }
+
+  .hamburger-menu div {
+    width: 18px;
+    height: 2px;
+  }
+}

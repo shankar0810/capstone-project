@@ -1,0 +1,9 @@
+http://localhost:3333/api/v1/health/createuser -- creating user
+
+http://localhost:3333/api/v1/health/heart-rate/{userId} -- heart rate
+
+http://localhost:3333/api/v1/health/daily-caloric-intake/{userId} -- calories needed
+
+http://localhost:3333/api/v1/health/macro-nutrients/{userId} -- macro-nutrients
+
+http://localhost:3333/api/v1/health/water-intake/{userId} -- water intake

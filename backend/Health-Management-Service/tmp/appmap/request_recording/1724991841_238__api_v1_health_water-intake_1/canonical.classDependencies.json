@@ -1,0 +1,6 @@
+[
+  {
+    "caller": "GET /api/v1/health/water-intake/{userId}",
+    "callee": "com/capstone"
+  }
+]

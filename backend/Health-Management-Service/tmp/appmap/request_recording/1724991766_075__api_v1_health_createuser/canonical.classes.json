@@ -1,0 +1,4 @@
+[
+  "com/capstone/Health_Management_Service/controller/HealthController",
+  "com/capstone/Health_Management_Service/service/HealthService"
+]
