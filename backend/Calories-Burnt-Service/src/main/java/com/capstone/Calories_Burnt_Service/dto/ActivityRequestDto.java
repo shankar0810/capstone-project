@@ -8,5 +8,5 @@ public class ActivityRequestDto {
     private int weight_kg;
     private int height_cm;
     private int age;
-    private int duration;
+    private String userId;
 }

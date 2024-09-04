@@ -19,4 +19,9 @@ public class ActivityController {
     public List<ActivityResponseDto> fetchAndSaveActivities(@RequestBody ActivityRequestDto requestDto) {
         return activityService.fetchAndSaveActivities(requestDto);
     }
+
+    @GetMapping("/burned/{userId}")
+    public List<ActivityResponseDto> getActivitiesByUserId(@PathVariable String userId) {
+        return activityService.getActivitiesByUserId(userId);
+    }
 }

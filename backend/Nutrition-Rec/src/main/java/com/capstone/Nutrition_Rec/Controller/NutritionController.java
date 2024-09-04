@@ -6,6 +6,8 @@ import com.capstone.Nutrition_Rec.dto.NutritionResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/nutrition")
 
@@ -15,7 +17,12 @@ public class NutritionController {
     private NutritionService nutritionService;
 
     @PostMapping
-    public NutritionResponseDto getNutritionData(@RequestBody NutritionRequestDto requestDto) {
-        return nutritionService.getNutritionData(requestDto);
+    public NutritionResponseDto saveNutritionData(@RequestBody NutritionRequestDto requestDto) {
+        return nutritionService.saveNutritionData(requestDto);
+    }
+
+    @GetMapping("/gained/{userId}")
+    public List<NutritionResponseDto> getNutritions(@PathVariable String userId) {
+        return nutritionService.getNutritions(userId);
     }
 }

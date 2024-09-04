@@ -14,7 +14,6 @@ const ActivityForm = () => {
   const [activity, setActivity] = useState('');
   const [tableData, setTableData] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const handleSubmitActivity = async () => {
     setLoading(true); // Start loading
     try {
@@ -34,7 +33,7 @@ const ActivityForm = () => {
           weight_kg: userdata.weight, // Use the weight fetched from the user data
           height_cm: userdata.height, // Use the height fetched from the user data
           age: userdata.age, // Use the age fetched from the user data
-          duration: 60, // Dynamic duration
+          userId:userId// Dynamic duration
         }),
       });
       

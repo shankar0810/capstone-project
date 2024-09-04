@@ -8,6 +8,7 @@ import { FaUser, FaUserPen } from "react-icons/fa6";
 
 const ProfileContainer = () => {
 
+  // eslint-disable-next-line no-unused-vars
   const showErrorToast = () => {
     toast.error("Please complete your profile setup!", {
       position: toast.POSITION.TOP_CENTER,

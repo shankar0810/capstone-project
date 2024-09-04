@@ -164,6 +164,8 @@ import { faTint, faHeartbeat, faFireAlt, faChartPie, faWeight } from '@fortaweso
 import GaugeChart from 'react-gauge-chart';
 import './dashboard.css';
 import { Gauge } from '@mui/x-charts/Gauge';// Import the CSS file
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css';
 
 const HealthDashboard = (  ) => {
     const [waterIntake, setWaterIntake] = useState(null);
@@ -173,20 +175,14 @@ const HealthDashboard = (  ) => {
     const [bmi, setBmi] = useState(null); // New state for BMI
     const [username, setUsername] = useState(''); // New state for Username
     const [error, setError] = useState(null);
-    const [energy, setEnergy] = useState(null);
-    const [calorieburned,setCalorieburned]=useState(null);
+    const [calorieburned, setCalorieburned] = useState(null);
+    const [caloriegained, setCaloriegained] = useState(null);
+    const [currentDate, setCurrentDate] = useState(new Date()); 
+
     useEffect(() => {
         const fetchHealthData = async () => {
             const userId = localStorage.getItem('userId');
-            const storedEnergy = localStorage.getItem('energy');
-            setEnergy(storedEnergy);
-            const storedCaloriesBurned = localStorage.getItem('calorie');
-            setCalorieburned(storedCaloriesBurned ? storedCaloriesBurned : 0);
             
-            
-            
-            
-
             if (!userId) {
                 setError('User ID missing');
                 return;
@@ -199,23 +195,48 @@ const HealthDashboard = (  ) => {
                 setUsername(userData.username); // Set the username
 
                 // //Fetch other health data
-                // const waterIntakeResponse = await axios.get(`http://localhost:9999/health/water-intake/${userId}`);
-                // setWaterIntake(waterIntakeResponse.data);
+                const waterIntakeResponse = await axios.get(`http://localhost:9999/health/water-intake/${userId}`);
+                setWaterIntake(waterIntakeResponse.data);
 
-                // const heartRateResponse = await axios.get(`http://localhost:9999/health/heart-rate/${userId}`);
-                // setHeartRate(heartRateResponse.data);
+                const heartRateResponse = await axios.get(`http://localhost:9999/health/heart-rate/${userId}`);
+                setHeartRate(heartRateResponse.data);
 
                 const dailyCalorieResponse = await axios.get(`http://localhost:9999/health/daily-caloric-intake/${userId}`);
                 setDailyCalorie(dailyCalorieResponse.data);
 
-                // console.log(dailyCalorieResponse);
+                // //console.log(dailyCalorieResponse);
 
-                // const macronutrientResponse = await axios.get(`http://localhost:9999/health/macro-nutrients/${userId}`);
-                // setMacronutrients(macronutrientResponse.data);
+                const macronutrientResponse = await axios.get(`http://localhost:9999/health/macro-nutrients/${userId}`);
+                setMacronutrients(macronutrientResponse.data);
 
                 // Fetch BMI data
                 const bmiResponse = await axios.get(`http://localhost:9999/health/bmi/${userId}`);
                 setBmi(bmiResponse.data);
+
+                const gainedResponse = await axios.get(`http://localhost:9999/nutrition/gained/${userId}`);
+                const nutritionData = gainedResponse.data;
+                let totalCaloriesGained = 0;
+
+                nutritionData.forEach(item => {
+                    const Info = JSON.parse(item.nutritionInfo);
+                    if (Info && Info.totalNutrients && Info.totalNutrients.ENERC_KCAL) {
+                        totalCaloriesGained += Info.totalNutrients.ENERC_KCAL.quantity;
+                    }
+                });
+                setCaloriegained(totalCaloriesGained);
+                //console.log(caloriegained);
+                //setCaloriegained(gainedResponse.data.calories);
+
+                const burnedResponse = await axios.get(`http://localhost:9999/activity/burned/${userId}`);
+                //console.log(burnedResponse);
+                const activityData = burnedResponse.data;
+                let totalCaloriesBurned = 0;
+
+                activityData.forEach(activity => {
+                totalCaloriesBurned += activity.nfCalories;
+            });
+                setCalorieburned(totalCaloriesBurned);
+                //console.log(calorieburned);
 
             } catch (err) {
                 console.error('Error fetching health data:', err);
@@ -225,6 +246,33 @@ const HealthDashboard = (  ) => {
 
         fetchHealthData();
     }, []);
+
+    useEffect(() => {
+        const checkNewDay = () => {
+            const now = new Date();
+            if (now.getDate() !== currentDate.getDate()) {
+                setCaloriegained(0);
+                setCalorieburned(0);
+                setCurrentDate(now); // Update the current date
+            }
+        };
+
+        const intervalId = setInterval(checkNewDay, 1000 * 60 * 60); // Check every hour
+
+        return () => clearInterval(intervalId); // Clean up on component unmount
+    }, [currentDate]);
+
+
+    useEffect(() => {
+        //console.log('Updated total calories gained:', caloriegained);
+        setCaloriegained(caloriegained);
+        
+    }, [caloriegained]);
+
+    useEffect(() => {
+        //console.log('Updated total calories burned:', calorieburned);
+        setCalorieburned(calorieburned);
+    }, [calorieburned]);
 
     // Determine the color based on BMI category
     const getColor = (category) => {
@@ -246,14 +294,27 @@ const HealthDashboard = (  ) => {
 
     const calculateNetCaloriePercentage = () => {
         if (!dailyCalorie.caloric_needs.calories.split(' ')[0]) return 0;
-        const netCalories = (energy || 0) - (calorieburned || 0);
-        console.log(netCalories);
-        console.log(dailyCalorie.caloric_needs.calories.split(' ')[0]);
+        const netCalories = (caloriegained || 0) - (calorieburned || 0);
+        //console.log(netCalories);
+        //console.log(dailyCalorie.caloric_needs.calories.split(' ')[0]);
         const percentage = (netCalories / dailyCalorie.caloric_needs.calories.split(' ')[0]) * 100;
-        console.log(percentage);
+        //console.log(percentage);
         return Math.min(Math.max(percentage, 0), 100); // Ensure the percentage is between 0 and 100
     };
    
+
+    useEffect(() => {
+        if (dailyCalorie) {
+            const netCalories = (caloriegained || 0) - (calorieburned || 0);
+            const dailyCaloriesGoal = parseInt(dailyCalorie.caloric_needs.calories.split(' ')[0]);
+
+            if (netCalories >= dailyCaloriesGoal) {
+                toast.success("Congratulations! You've reached your daily calorie goal!");
+            } else if (netCalories < 0) {
+                toast.warning("Your net calorie count is negative. You need to consume more calories!");
+            }
+        }
+    }, [caloriegained, calorieburned, dailyCalorie]);
 
     return (
         <div className="dashboard-container">
@@ -341,15 +402,17 @@ const HealthDashboard = (  ) => {
                                 valueFormatter={(value) => `${value.toFixed(2)}%`}
                             />
                             <p>Daily Goal: {dailyCalorie.caloric_needs.calories} calories</p>
-                            <p>Gained: {energy || 0} calories</p>
+                            <p>Gained: {caloriegained || 0} calories</p>
                             <p>Burned: {calorieburned || 0} calories</p>
-                            <p>Net: {((energy || 0) - (calorieburned || 0)).toFixed(2)} calories</p>
+                            <p>Net: {((caloriegained || 0) - (calorieburned || 0)).toFixed(2)} calories</p>
                         </>
                     )}
                     {!dailyCalorie && <p>Loading calorie data...</p>}
                 </div>
                 </div>
+                <ToastContainer />
             </div>
+            
         </div>
     );
 };

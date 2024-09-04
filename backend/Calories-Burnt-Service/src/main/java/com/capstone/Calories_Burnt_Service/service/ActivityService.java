@@ -2,6 +2,8 @@ package com.capstone.Calories_Burnt_Service.service;
 
 import com.capstone.Calories_Burnt_Service.dto.ActivityRequestDto;
 import com.capstone.Calories_Burnt_Service.dto.ActivityResponseDto;
+import com.capstone.Calories_Burnt_Service.feign.UserClient;
+import com.capstone.Calories_Burnt_Service.feign.UserData;
 import com.capstone.Calories_Burnt_Service.model.Activity;
 import com.capstone.Calories_Burnt_Service.repository.ActivityRepository;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -25,6 +27,9 @@ public class ActivityService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private UserClient userClient;  // Inject Feign client
+
     private final String appId = "6049b699"; // Replace with your x-app-id
     private final String appKey = "723c95d84a64906fcf41899b7a4a4635"; // Replace with your x-app-key
 
@@ -32,6 +37,18 @@ public class ActivityService {
         List<ActivityResponseDto> responseDtos = new ArrayList<>();
 
         try {
+            // Fetch user details using Feign
+            ResponseEntity<UserData> userResponse = userClient.getUserById(requestDto.getUserId());
+            UserData userData = userResponse.getBody();
+
+            if (userData != null) {
+                // Use the user data as needed
+                System.out.println("User fetched: " + userData.getUsername());
+            } else {
+                throw new Exception("User not found");
+            }
+
+            // Prepare API request for fetching activity data
             String apiUrl = "https://trackapi.nutritionix.com/v2/natural/exercise";
 
             HttpHeaders headers = new HttpHeaders();
@@ -52,8 +69,10 @@ public class ActivityService {
                 Activity activity = new Activity();
                 activity.setActivityName(node.path("name").asText());
                 activity.setNfCalories(node.path("nf_calories").asInt());
-                activity.setDuration(requestDto.getDuration());
                 activity.setTimestamp(System.currentTimeMillis());
+
+                // Map activity to user
+                activity.setUserId(requestDto.getUserId());
 
                 activities.add(activity);
 
@@ -74,4 +93,21 @@ public class ActivityService {
 
         return responseDtos;
     }
+
+    public List<ActivityResponseDto> getActivitiesByUserId(String userId) {
+        List<Activity> activities = activityRepository.findByUserId(userId);
+        List<ActivityResponseDto> responseDtos = new ArrayList<>();
+
+        for (Activity activity : activities) {
+            ActivityResponseDto responseDto = new ActivityResponseDto();
+            responseDto.setActivityName(activity.getActivityName());
+            responseDto.setNfCalories(activity.getNfCalories());
+            responseDto.setTimestamp(activity.getTimestamp());
+
+            responseDtos.add(responseDto);
+        }
+
+        return responseDtos;
+    }
 }
+

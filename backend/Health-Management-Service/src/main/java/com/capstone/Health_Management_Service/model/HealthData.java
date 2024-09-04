@@ -20,6 +20,6 @@ public class HealthData {
     private String unit; //(liters, ounces)
     private String bodyCompositionalGoal; //(weight_loss, maintenance, muscle_gain)
     private String dietaryPreferences; //(vegetarian, vegan, pescatarian, gluten-free)
-    private String equation; //(harris, mifflin)
+    private String equation="mifflin"; //(harris, mifflin)
     private String userId;
 }

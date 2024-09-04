@@ -65,7 +65,7 @@ const DietPlanForm = () => {
     };
 
     try {
-      const response = await axios.get('http://localhost:9999/diet', {
+      const response = await axios.get('http://localhost:9999/recommendations/diet', {
         params: {
           ...mergedData,
           geminiKey: 'AIzaSyCFuEkMDyIOBOJ2rWGm3bBmpAP5i0VZG8g' 

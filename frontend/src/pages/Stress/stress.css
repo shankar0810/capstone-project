@@ -1,4 +1,130 @@
-.stress-container{
+.stress-questionnaire-container1 {
+    margin: 0 auto;
     display: flex;
-    box-sizing: border-box; 
-}
+  }
+  
+  .stress-questionnaire-container {
+    margin: 30px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stress-questionnaire-container h1 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .stress-input {
+    margin: 10px 0;
+  }
+  
+  .stress-questionnaire-form input[type="text"] {
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(161, 161, 161, 0.9);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .stress-questionnaire-form input:focus[type="text"] {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(58, 142, 246, 0.5);
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #3A8EF6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submit-button:hover {
+    background-color: #2176FF;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 118, 255, 0.4);
+  }
+  
+  .stress-recommendations-content {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stress-recommendations-content h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .stress-recommendations-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Add border around the entire table */
+  }
+  
+  .stress-recommendations-content th,
+  .stress-recommendations-content td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd; /* Add border around table cells */
+  }
+  
+  .stress-recommendations-content th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .stress-recommendations-content tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .stress-questionnaire-container {
+      padding: 15px;
+    }
+  
+    .stress-questionnaire-form input[type="text"],
+    .stress-input {
+      width: calc(100% - 16px);
+    }
+  
+    .submit-button {
+      font-size: 14px;
+    }
+  
+    .stress-recommendations-content h2 {
+      font-size: 20px;
+    }
+  }
+  

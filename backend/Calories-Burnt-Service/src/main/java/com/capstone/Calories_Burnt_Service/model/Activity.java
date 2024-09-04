@@ -16,6 +16,6 @@ public class Activity {
     private String id;
     private String activityName;
     private int nfCalories;
-    private int duration;
     private long timestamp;
+    private String userId;
 }

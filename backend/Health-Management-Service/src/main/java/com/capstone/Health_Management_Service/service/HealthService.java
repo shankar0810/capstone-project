@@ -364,10 +364,10 @@ public class HealthService {
         healthdata.setFitnessLevel(healthData.getFitnessLevel());
         healthdata.setClimate(healthData.getClimate());
         healthdata.setUnit(healthData.getUnit());
-        healthdata.setEquation(healthData.getEquation());
+        //healthdata.setEquation(healthData.getEquation());
         healthdata.setBodyCompositionalGoal(healthData.getBodyCompositionalGoal());
         healthdata.setDietaryPreferences(healthData.getDietaryPreferences());
-        healthdata.setEquation(healthData.getEquation());
+        //healthdata.setEquation(healthData.getEquation());
         return userDataRepository.save(healthdata);
     }
 

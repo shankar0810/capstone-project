@@ -15,6 +15,7 @@ public class NutritionData {
     private String id;
     private String ingredient;
     private String nutritionInfo;
+    private String userId;
 }
 
 

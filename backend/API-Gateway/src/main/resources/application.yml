@@ -24,10 +24,6 @@ spring:
 
       mvc:
         routes:
-          - id: Exercise-Rec
-            uri: http://localhost:3337
-            predicates:
-              - Path=/exercise/**
           - id: User-Management-Service
             uri: http://localhost:3332
             predicates:
@@ -35,7 +31,7 @@ spring:
           - id: Diet-Service
             uri: http://localhost:3334
             predicates:
-              - Path=/diet/**
+              - Path=/recommendations/**
           - id: Nutrition-Rec
             uri: http://localhost:3336
             predicates:

@@ -1,16 +1,16 @@
-package com.capstone.Exercise_Rec.dto;
+package com.capstone.Diet_Recommendation_Service.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExerciseResponseDTO {
-    private String id;
+public class Exercise {
     private String bodyPart;
     private String equipment;
     private String gifUrl;

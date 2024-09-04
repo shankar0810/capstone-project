@@ -18,7 +18,7 @@ const ProfileSetupPopup = () => {
     unit: '',
     bodyCompositionalGoal: '',
     dietaryPreferences: '',
-    equation: '',
+    //equation: '',
 });
 const [error, setError] = useState(null);
 const [submitted, setSubmitted] = useState(false); // Track submission status
@@ -169,16 +169,7 @@ const handleSubmit = async (e) => {
             <option className="psp-option" value="liters">liters</option>
             <option className="psp-option" value="ounces">ounces</option>
           </select>
-          <select
-            name="equation"
-            value={formData.equation}
-            onChange={handleChange}
-            className="psp-select"
-          >
-            <option className="psp-option" value="" disabled>Select equation</option>
-            <option className="psp-option" value="mifflin">mifflin</option>
-            <option className="psp-option" value="harris">harris</option>
-          </select>
+          
           <select
             name="dietaryPreferences"
             value={formData.dietaryPreferences}

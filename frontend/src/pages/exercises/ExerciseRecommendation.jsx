@@ -24,7 +24,7 @@ const ExerciseRecommendation = () => {
   const handleRecommend = async () => {
     setLoading(true); // Start loading
     try {
-      const response = await fetch(`http://localhost:9999/exercise/${bodyPart}`);
+      const response = await fetch(`http://localhost:9999/recommendations/${bodyPart}`);
       const data = await response.json();
       const formattedData = data.map((exercise) => ({
         Name: exercise.name,
