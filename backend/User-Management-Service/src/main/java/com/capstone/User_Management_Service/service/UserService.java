@@ -2,7 +2,6 @@ package com.capstone.User_Management_Service.service;
 
 import com.capstone.User_Management_Service.model.UserData;
 import com.capstone.User_Management_Service.repository.UserRepository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -40,9 +39,13 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-
     public UserData getUserById(String userId) {
         UserData user = userRepository.findById(userId).orElse(null);
         return user;
+    }
+
+    // New method to update the user, particularly for updating login timestamps
+    public void updateUser(UserData user) {
+        userRepository.save(user);
     }
 }

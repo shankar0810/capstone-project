@@ -1,5 +1,6 @@
 package com.capstone.User_Management_Service.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +13,6 @@ import com.capstone.User_Management_Service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @RequestMapping("/user")
@@ -29,11 +29,11 @@ public class UserController {
         try {
             if (userService.existsByUsername(signUpRequest.getUsername())) {
                 Map<String, String> response = new HashMap<>();
-                response.put("message", "Username already exists.Try another Username!");
+                response.put("message", "Username already exists. Try another Username!");
                 return ResponseEntity.status(400).body(response);
             }
 
-            UserData user = new UserData(signUpRequest.getUserId(),signUpRequest.getUsername(), signUpRequest.getEmail(), signUpRequest.getPassword());
+            UserData user = new UserData(signUpRequest.getUserId(), signUpRequest.getUsername(), signUpRequest.getEmail(), signUpRequest.getPassword());
             userService.registerUser(user);
             Map<String, String> response = new HashMap<>();
             response.put("message", "User registered successfully");
@@ -46,25 +46,31 @@ public class UserController {
         }
     }
 
-
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginDTO) {
         UserData user = userService.getUserByUsername(loginDTO.getUsername());
+
         if (user != null && userService.authenticate(loginDTO.getUsername(), loginDTO.getPassword())) {
+            // Handle login timestamp logic
+            Date now = new Date();
+
+            // Update lastLogin to previous recentLogin
+            user.setLastLogin(user.getRecentLogin());
+
+            // Set recentLogin to current timestamp
+            user.setRecentLogin(now);
+
+            // Save the updated user data
+            userService.updateUser(user);
+
             String token = jwtService.generateToken(loginDTO.getUsername());
-            LoginResponse loginResponse = new LoginResponse(token, user.getUserId());
+
+            // Include both login timestamps in the response
+            LoginResponse loginResponse = new LoginResponse(token, user.getUserId(), user.getLastLogin(), user.getRecentLogin());
             return ResponseEntity.ok(loginResponse);
         } else {
-            return ResponseEntity.status(401).body(null); // Return null or an appropriate error response
+            return ResponseEntity.status(401).body(null);
         }
-    }
-
-
-
-    @GetMapping("/check-username")
-    public ResponseEntity<Map<String, Boolean>> checkUsername(@RequestParam String username) {
-        boolean exists = userService.existsByUsername(username);
-        return ResponseEntity.ok(Map.of("exists", exists));
     }
 
     @GetMapping("/{userId}")
@@ -72,5 +78,4 @@ public class UserController {
         UserData userDTO = userService.getUserById(userId);
         return ResponseEntity.ok(userDTO);
     }
-
 }

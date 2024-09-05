@@ -25,21 +25,7 @@ function Nutrition() {
                 userId: userId
             });
             setNutritionalData(response.data);
-            // const nutritionData = JSON.parse(response.data.nutritionInfo);
-            // const energyValue = nutritionData.totalNutrients.ENERC_KCAL.quantity;
-            // setEnergy(energyValue);
-            // let existingEnergy = localStorage.getItem('energy');
-            // if (existingEnergy) {
-            //     existingEnergy = parseFloat(existingEnergy);
-            //     // Add the new energy value to the existing one
-            //     existingEnergy += energyValue;
-            // } else {
-            //     // If no existing energy, use the new value
-            //     existingEnergy = energyValue;
-            // }
-
-            // // Save the updated energy value to local storage
-            // localStorage.setItem('energy', existingEnergy);
+            
         } catch (error) {
             console.error("Error fetching data:", error);
         } finally {
